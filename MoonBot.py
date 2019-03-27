@@ -11,7 +11,7 @@ cogList = ["cogs.commands",
 class MoonBot(commands.Bot):
 
     def __init__(self):
-        super().__init__(description="MoonBot", command_prefix="%", pm_help=False)
+        super().__init__(description="MoonBot", command_prefix="%", case_insensitive=True, pm_help=False)
         for cog in cogList:
             self.load_extension(cog)
 
