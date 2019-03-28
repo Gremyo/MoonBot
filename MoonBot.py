@@ -29,6 +29,9 @@ class MoonBot(commands.Bot):
         print('--------')
         print('Written by BabySnake#6314')
 
+    #async def on_command_error(self, context, exception):
+    #    if exception is discord.ext.commands.BadArgument:
+    #        context.send("Oopsy doopsy you made a big fucky wucky")
 
 if __name__ == "__main__":
     client = MoonBot()

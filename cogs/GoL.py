@@ -15,7 +15,7 @@ class GoL(commands.Cog):
         await ctx.send(type(arg), arg)
 
     @commands.command()
-    async def GoL(self, ctx, seed="random", steps=10, step_speed=5):
+    async def GoL(self, ctx, seed="random", steps = 10, step_speed=5):
 
         if seed.lower() != "random":
             try:
@@ -32,20 +32,22 @@ class GoL(commands.Cog):
             board = GameOfLifeClass()
 
         message = await ctx.send(board.BoolBoard)
-
-        if type(steps) == int:
-            if steps > 50:
-                steps = 50
-        else:
+        print("got here")
+        if type(steps) != int:
             await ctx.send("Step must be int")
             return 1
+        elif steps<5:
+            steps = 5
+        elif steps>50:
+            steps = 50
 
-        if type(step_speed) == int:
-            if step_speed < 1:
-                step_speed = 1
-        else:
+        if type(step_speed) != int:
             await ctx.send("step speed must be int")
             return 1
+        elif step_speed<1:
+            step_speed = 1
+        elif step_speed>10:
+            step_speed=10
 
         for j in range(int(steps)):
             board.Step()
